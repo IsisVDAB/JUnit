@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class RechthoekTest {
 
@@ -25,5 +28,22 @@ public class RechthoekTest {
     @Test
     void rechthoekenMetDezelfdeAfmetingenGevenDezelfdeHashcode() {
         assertThat(new Rechthoek(5, 3)).hasSameHashCodeAs(new Rechthoek(5, 3));
+    }
+
+    @Test
+    void lengteMagNietNegatiefZijn() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> new Rechthoek(-1, 5));
+    }
+
+    @Test
+    void eenNegatieveBreedteKanNiet() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> new Rechthoek(5, -1));
+    }
+    @Test
+    void deLengteMoetMinstensDeBreedteZijn() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> new Rechthoek(2, 3));
     }
 }

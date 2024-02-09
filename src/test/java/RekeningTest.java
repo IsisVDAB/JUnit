@@ -26,4 +26,6 @@ class RekeningTest {
         rekening.stort(BigDecimal.ONE);
         assertThat(rekening.getSaldo()).isEqualByComparingTo("11");
     }
+
+
 }

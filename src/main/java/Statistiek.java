@@ -7,6 +7,7 @@ public class Statistiek {
             throw new IllegalArgumentException("Lege array");
         }
         return Arrays.stream(getallen)
-                .reduce(BigDecimal.ZERO)
+                .reduce(BigDecimal.ZERO, (vorigTotaal, getal) -> vorigTotaal.add(getal))
+                .divide(BigDecimal.valueOf(getallen.length));
     }
 }

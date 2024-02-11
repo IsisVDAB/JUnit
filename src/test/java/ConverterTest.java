@@ -10,8 +10,9 @@ public class ConverterTest {
         assertThat(new Converter().inchesNaarCentimeters(BigDecimal.ONE)).isEqualByComparingTo("2.54"); // Je mag verwachte waarde meegeven als String ipv BigDecimal.valueOf(2.54)
     }
 
-    @Test
+    // Test klopt niet:
+/*    @Test
     void tweehonderdInchesIs508Centimeters(){
         assertThat(new Converter().inchesNaarCentimeters(BigDecimal.valueOf(2.54))).isEqualByComparingTo("508");
-    }
+    }*/
 }

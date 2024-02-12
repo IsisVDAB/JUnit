@@ -6,11 +6,11 @@ public class WoonplaatsServiceTest {
     private WoonplaatsService service;
     @BeforeEach
     void beforeEach(){
-        service = new WoonplaatsService(new WoonplaatsRepository());
+        service = new WoonplaatsService(new WoonplaatsRepositoryStub());
     }
 
     @Test
-    void maxAantalStreepjesInEenWoonplaats(){
-        assertThat(service.maxAantalStreepjesInEenWoonplaats()).isNotNegative();
+    void eenWoonplaatsBevatMaximaal3Streepjes(){
+        assertThat(service.maxAantalStreepjesInEenWoonplaats()).isEqualTo(3L);
     }
 }
